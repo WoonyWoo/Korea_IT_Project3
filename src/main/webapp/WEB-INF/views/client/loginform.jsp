@@ -31,6 +31,25 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="/resources/client/assets/css/material-kit.css?v=2.0.7" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/resources/client/assets/demo/demo.css" rel="stylesheet" />
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(function(){
+	$("button[name='login']").click(function(){
+		loginCheck();
+	});
+});
+
+function loginCheck(){
+	//서버에 로그인 요청
+	$("form").attr({
+		"action":"/n/client/login",
+		"method":"post"
+	});
+	$("form").submit();
+}
+
+</script>
 </head>
 
 <body class="login-page sidebar-collapse">
@@ -150,7 +169,7 @@ The above copyright notice and this permission notice shall be included in all c
               
               <!-- Login 버튼 -->  
               <div class="footer text-center">
-                <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">Login</a>
+                <button name="login" class="btn btn-primary btn-link btn-wd btn-lg">Login</button>
                 <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">Sign Up</a>
               </div>
               

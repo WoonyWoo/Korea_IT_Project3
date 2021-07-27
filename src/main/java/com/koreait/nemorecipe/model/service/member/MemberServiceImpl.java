@@ -1,27 +1,22 @@
-package com.koreait.nemorecipe.model.repository.member;
+package com.koreait.nemorecipe.model.service.member;
 
 import java.util.List;
 
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.koreait.nemorecipe.domain.Member;
 import com.koreait.nemorecipe.exception.MemberExistException;
+import com.koreait.nemorecipe.model.repository.member.MemberDAO;
 
-@Repository
-public class MybatisMemberDAO implements MemberDAO{
-	
+@Service
+public class MemberServiceImpl implements MemberService{
 	@Autowired
-	private SqlSessionTemplate sqlSessionTemplate;
+	private MemberDAO memberDAO;
 
 	@Override
 	public Member login(Member member) throws MemberExistException{
-		Member obj = sqlSessionTemplate.selectOne("Member.login", member);
-		if(obj==null) {
-			throw new MemberExistException("관리자 정보가 올바르지 않습니다");
-		}
-		return obj;
+		return memberDAO.login(member);
 	}
 
 	@Override
