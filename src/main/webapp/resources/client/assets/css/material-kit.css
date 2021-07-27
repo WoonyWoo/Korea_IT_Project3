@@ -423,10 +423,6 @@ template {
     min-width: 992px !important;
   }
 
-  .navbar {
-    display: none;
-  }
-
   .badge {
     border: 1px solid #000;
   }
@@ -1006,6 +1002,7 @@ pre code {
   margin-left: auto;
 }
 
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -1043,7 +1040,7 @@ pre code {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
-}
+} 
 
 .no-gutters {
   margin-right: 0;
