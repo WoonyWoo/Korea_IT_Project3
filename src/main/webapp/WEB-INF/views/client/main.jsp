@@ -28,7 +28,7 @@ The above copyright notice and this permission notice shall be included in all c
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
-  <link href="/resources/client/assets/css/material-kit.css?v=2.0.7" rel="stylesheet" />
+  <link href="/resources/client/assets/css/material-kit.css" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/resources/client/assets/demo/demo.css" rel="stylesheet" />
 </head>
@@ -36,99 +36,80 @@ The above copyright notice and this permission notice shall be included in all c
 <body class="index-page sidebar-collapse">
 
 <!-- 상단 네비게이션 바 -->
-  <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
-    <div class="container">
-      <div class="navbar-translate">
-      
-      	<!-- 좌상단 제목 -->
-        <a class="navbar-brand" href="/client/main">Nemo Recipe </a> 
-          
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto">
-        
-        <!-- 로그인 연결 -->
-         <li class="nav-item">
-           <a class="nav-link" href="/client/loginform">
-              Login
-           </a>
-         </li>
-        
-        <!-- 드롭 다운 상단 메뉴 -->
-          <li class="dropdown nav-item">
-            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-              <i class="material-icons">apps</i> Components
-            </a>
-            <div class="dropdown-menu dropdown-with-icons">
-              <a href="/resources/client/index.html" class="dropdown-item">
-                <i class="material-icons">layers</i> All Components
-              </a>
-              <a href="https://demos.creative-tim.com/material-kit/docs/2.0/getting-started/introduction.html" class="dropdown-item">
-                <i class="material-icons">content_paste</i> Documentation
-              </a>
-            </div>
-          </li>
-          <!-- 드롭 다운 상단 메뉴 끝 -->
-          
-          <!-- 맨 아래로(다운로드) -->
-          <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
-              <i class="material-icons">cloud_download</i> Download
-            </a>
-          </li>
-          
-          <!-- 사이트 연결 -->
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.creative-tim.com/product/material-kit-pro" target="_blank">
-              <i class="material-icons">unarchive</i> Upgrade to PRO
-            </a>
-          </li>
-          
-          <!-- 트위터 연결 -->
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://twitter.com/CreativeTim" target="_blank" data-original-title="Follow us on Twitter" rel="nofollow">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-          
-          <!-- 페이스북 연결 -->
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.facebook.com/CreativeTim" target="_blank" data-original-title="Like us on Facebook" rel="nofollow">
-              <i class="fa fa-facebook-square"></i>
-            </a>
-          </li>
-          
-          <!-- 인스타그램 연결 -->
-          <li class="nav-item">
-            <a class="nav-link" rel="tooltip" title="" data-placement="bottom" href="https://www.instagram.com/CreativeTimOfficial" target="_blank" data-original-title="Follow us on Instagram" rel="nofollow">
-              <i class="fa fa-instagram"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <!-- 상단 네비게이션 바 끝 -->
+	<nav
+		class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg"
+		color-on-scroll="100" id="sectionsNav">
+		<div class="container">
+			<div class="navbar-translate">
+
+				<!-- 좌상단 제목 -->
+				<a class="navbar-brand" href="/client/main">Nemo Recipe </a>
+
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="navbar-toggler-icon"></span> <span
+						class="navbar-toggler-icon"></span> <span
+						class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="navbar-nav ml-auto">
+					<!-- Home -->
+					<li class="nav-item"><a class="nav-link"
+						href="/client/main" onclick=""> Home </a></li>
+					<!-- Recipe -->
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)" onclick=""> Recipe </a></li>
+					<!-- Ranking -->
+					<li class="nav-item"><a class="nav-link"
+						href="/client/ranking" onclick=""> Ranking </a></li>
+					<!-- MyPage -->
+					<li class="nav-item"><a class="nav-link"
+						href="javascript:void(0)" onclick=""> MyPage </a></li>
+					<!-- 구분선 -->
+					<li><a> || </a></li>
+					<!-- 로그인 연결 -->
+					<li class="nav-item"><a class="nav-link"
+						href="/client/loginform"> Login </a></li>
+					<!-- 구분선 -->
+					<li><a> || </a></li>
+					<!-- 트위터 연결 -->
+					<li class="nav-item"><a class="nav-link" rel="tooltip"
+						title="" data-placement="bottom"
+						href="https://twitter.com/CreativeTim" target="_blank"
+						data-original-title="Follow us on Twitter" rel="nofollow"> <i
+							class="fa fa-twitter"></i>
+					</a></li>
+					<!-- 페이스북 연결 -->
+					<li class="nav-item"><a class="nav-link" rel="tooltip"
+						title="" data-placement="bottom"
+						href="https://www.facebook.com/CreativeTim" target="_blank"
+						data-original-title="Like us on Facebook" rel="nofollow"> <i
+							class="fa fa-facebook-square"></i>
+					</a></li>
+					<!-- 인스타그램 연결 -->
+					<li class="nav-item"><a class="nav-link" rel="tooltip"
+						title="" data-placement="bottom"
+						href="https://www.instagram.com/CreativeTimOfficial"
+						target="_blank" data-original-title="Follow us on Instagram"
+						rel="nofollow"> <i class="fa fa-instagram"></i>
+					</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- 상단 네비게이션 바 끝 -->
   
   <!-- 상단 최초 이미지 메인 -->
-  <div class="page-header header-filter clear-filter purple-filter" data-parallax="true" style="background-image: url('/resources/client/assets/img/bg2.jpg');">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 ml-auto mr-auto">
-          <div class="brand">
-            <h1>Nemo Recipe</h1>
-            <h2>네가 좋아할만한 모든 레시피</h2>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="page-header header-filter clear-filter purple-filter"
+		data-parallax="true" style="background-color: white;">
+	<!-- NEMO LOGO TITLE -->
+	<div class="logo_face"></div>
+	<div class="logo_title"></div>
   </div>
+  
+  <!-- 상단 최초 이미지 메인 End -->
   
   <!-- 메인 전체 -->
   <div class="main main-raised">
@@ -146,7 +127,7 @@ The above copyright notice and this permission notice shall be included in all c
 	          <input type="text" class="form-control" id="exampleInput1">
 	          <span class="bmd-help">네가 좋아할만한 모든 레시피!!</span>
 	        </div>
-	        <button class="btn btn-primary btn-round" style="margin-left: 20px; margin-top: 10px;">Search</button>
+	        <button class="btn btn-primary btn-round" style="margin-left: 20px; margin-top: 15px;">Search</button>
 	      </div>
         </div>
         <!--                 end inputs -->
@@ -213,6 +194,116 @@ The above copyright notice and this permission notice shall be included in all c
       </div>
     </div>
     <!-- 슬라이드 View End -->
+    
+    <div class="space-50"></div> <!-- 페이지 공백 -->
+    
+    <!-- 인기 레시피 View -->
+    <div class="section">
+      <div class="container tim-container">
+	    <div id="images">
+	      <!-- 중간 제목 -->
+	      <div class="title" style="position: relative;">
+	        <h2 style="float: left;">Nemo Recipe의 인기 레시피</h2>
+	        <button class="btn btn-success"  style="float: right; margin-top: 30px;">더보기</button>
+	      </div>
+	      <!-- 중간 제목 End -->
+	      <br>
+	      <hr style="border: 1px solid grey;"> <!-- 수평선 -->
+	      <br><br><br>
+	      <!-- 아이템 전체 -->
+	      <div class="row" style="position: relative;">
+	        
+	        <!-- 아이템 -->
+	        <div style="width: 200px; height: 200px; float: left; margin: 0px 2.5rem; margin-left: 3rem;">
+	          <img src="/resources/client/assets/img/faces/avatar.jpg" alt="Rounded Image" class="rounded img-fluid">
+	          <h4 class="title" style="text-align: center;">음식 제목</h4>
+	          <h6>음식 설명</h6>
+	          <h6 style="text-align: right; color: #00bcd4">닉네임/수정날짜</h6>
+	        </div>
+	        
+	        <div style="width: 200px; height: 200px; float: left; margin: 0px 2.5rem;">
+	          <img src="/resources/client/assets/img/faces/avatar.jpg" alt="Rounded Image" class="rounded img-fluid">
+	          <h4 class="title" style="text-align: center;">음식 제목</h4>
+	          <h6>음식 설명</h6>
+	          <h6 style="text-align: right; color: #00bcd4">닉네임/수정날짜</h6>
+	        </div>
+	        
+	        <div style="width: 200px; height: 200px; float: left; margin: 0px 2.5rem;">
+	          <img src="/resources/client/assets/img/faces/avatar.jpg" alt="Rounded Image" class="rounded img-fluid">
+	          <h4 class="title" style="text-align: center;">음식 제목</h4>
+	          <h6>음식 설명</h6>
+	          <h6 style="text-align: right; color: #00bcd4">닉네임/수정날짜</h6>
+	        </div>
+	        
+	        <div style="width: 200px; height: 200px; float: left; margin: 0px 2.5rem;">
+	          <img src="/resources/client/assets/img/faces/avatar.jpg" alt="Rounded Image" class="rounded img-fluid">
+	          <h4 class="title" style="text-align: center;">음식 제목</h4>
+	          <h6>음식 설명</h6>
+	          <h6 style="text-align: right; color: #00bcd4">닉네임/수정날짜</h6>
+	        </div>
+	      </div>
+	      <!-- 아이템 전체 End -->
+	    </div>
+	  </div>
+	</div>
+	<!-- 인기 레시피 View End -->
+	
+	<div class="space-50"></div> <!-- 페이지 공백 -->
+	<div class="space-50"></div> <!-- 페이지 공백 -->
+	
+	<!-- 인기 레시피 View -->
+    <div class="section">
+      <div class="container tim-container">
+	    <div id="images">
+	      <!-- 중간 제목 -->
+	      <div class="title" style="position: relative;">
+	        <h2 style="float: left;">Nemo Recipe의 인기 레시피</h2>
+	        <button class="btn btn-success"  style="float: right; margin-top: 30px;">더보기</button>
+	      </div>
+	      <!-- 중간 제목 End -->
+	      <br>
+	      <hr style="border: 1px solid grey;"> <!-- 수평선 -->
+	      <br><br><br>
+	      <!-- 아이템 전체 -->
+	      <div class="row" style="position: relative;">
+	        
+	        <!-- 아이템 -->
+	        <div style="width: 200px; height: 200px; float: left; margin: 0px 2.5rem; margin-left: 3rem;">
+	          <img src="/resources/client/assets/img/faces/avatar.jpg" alt="Rounded Image" class="rounded img-fluid">
+	          <h4 class="title" style="text-align: center;">음식 제목</h4>
+	          <h6>음식 설명</h6>
+	          <h6 style="text-align: right; color: #00bcd4">닉네임/수정날짜</h6>
+	        </div>
+	        
+	        <div style="width: 200px; height: 200px; float: left; margin: 0px 2.5rem;">
+	          <img src="/resources/client/assets/img/faces/avatar.jpg" alt="Rounded Image" class="rounded img-fluid">
+	          <h4 class="title" style="text-align: center;">음식 제목</h4>
+	          <h6>음식 설명</h6>
+	          <h6 style="text-align: right; color: #00bcd4">닉네임/수정날짜</h6>
+	        </div>
+	        
+	        <div style="width: 200px; height: 200px; float: left; margin: 0px 2.5rem;">
+	          <img src="/resources/client/assets/img/faces/avatar.jpg" alt="Rounded Image" class="rounded img-fluid">
+	          <h4 class="title" style="text-align: center;">음식 제목</h4>
+	          <h6>음식 설명</h6>
+	          <h6 style="text-align: right; color: #00bcd4">닉네임/수정날짜</h6>
+	        </div>
+	        
+	        <div style="width: 200px; height: 200px; float: left; margin: 0px 2.5rem;">
+	          <img src="/resources/client/assets/img/faces/avatar.jpg" alt="Rounded Image" class="rounded img-fluid">
+	          <h4 class="title" style="text-align: center;">음식 제목</h4>
+	          <h6>음식 설명</h6>
+	          <h6 style="text-align: right; color: #00bcd4">닉네임/수정날짜</h6>
+	        </div>
+	      </div>
+	      <!-- 아이템 전체 End -->
+	    </div>
+	  </div>
+	</div>
+	<!-- 인기 레시피 View End -->
+	
+	<div class="space-50"></div> <!-- 페이지 공백 -->
+	<div class="space-50"></div> <!-- 페이지 공백 -->
     
     <!-- 마지막 SNS 참조 -->
     <div class="section section-download" id="downloadSection">

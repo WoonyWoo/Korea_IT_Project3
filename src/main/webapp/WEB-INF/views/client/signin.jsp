@@ -21,7 +21,7 @@ The above copyright notice and this permission notice shall be included in all c
   <link rel="icon" type="image/png" href="/resources/client/assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    NemoRecipe Login
+    NemoRecipe Sign in
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -33,27 +33,10 @@ The above copyright notice and this permission notice shall be included in all c
   <link href="/resources/client/assets/demo/demo.css" rel="stylesheet" />
   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$(function(){
-	$("button[name='login']").click(function(){
-		loginCheck();
-	});
-});
-
-function loginCheck(){
-	//서버에 로그인 요청
-	$("form").attr({
-		"action":"/client/login",
-		"method":"post"
-	});
-	$("form").submit();
-}
-
-</script>
 </head>
 
+<!-- 상단 네비게이션 바 -->
 <body class="login-page sidebar-collapse">
-  <!-- 상단 네비게이션 바 -->
 	<nav
 		class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg"
 		color-on-scroll="100" id="sectionsNav">
@@ -117,38 +100,24 @@ function loginCheck(){
 			</div>
 		</div>
 	</nav>
-	<!-- 상단 네비게이션 바 끝 -->
   
-  <!-- 로그인 폼 배경화면(300KB 넘어가면 이미지가 나오지 않음) -->
+  <!-- 회원가입 폼 배경화면(300KB 넘어가면 이미지가 나오지 않음) -->
   <div class="page-header header-filter" style="background-image: url('/resources/client/assets/img/city.jpg'); background-size: cover; background-position: top center;">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-6 ml-auto mr-auto">
           <div class="card card-login">
             
-            <!-- 로그인 카드 영역 -->
+            <!-- 회원가입 카드 영역 -->
             <form class="form" method="" action="">
               <div class="card-header card-header-primary text-center">
-                <h4 class="card-title">Login</h4>
+                <h4 class="card-title">Sign in</h4>
                 
-                <!-- SNS 라인 -->
-                <!-- <div class="social-line">
-                  <a href="#pablo" class="btn btn-just-icon btn-link">
-                    <i class="fa fa-facebook-square"></i>
-                  </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link">
-                    <i class="fa fa-twitter"></i>
-                  </a>
-                  <a href="#pablo" class="btn btn-just-icon btn-link">
-                    <i class="fa fa-google-plus"></i>
-                  </a>
-                </div> -->
-                
-              <!-- 로그인 데이터 영역 -->
+              <!-- 회원가입 데이터 영역 -->
               </div>
-              <p class="description text-center">Nemo Recipe Login</p>
+              <p class="description text-center">Nemo Recipe Sign in</p>
               
-              <div class="card-body">
+              <div class="card-body" style="height: 400px;">
               
               	<!-- ID 입력 -->
                 <div class="input-group">
@@ -161,14 +130,25 @@ function loginCheck(){
                 </div>
                 
                 <!-- email 입력 -->
-                <!-- <div class="input-group">
+                <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text">
                       <i class="material-icons">mail</i>
                     </span>
                   </div>
                   <input type="email" class="form-control" placeholder="Email...">
-                </div> -->
+                </div>
+                
+                <!-- phone 입력 -->
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">settings_phone</i>
+                    </span>
+                  </div>
+                  <input type="email" class="form-control" placeholder="Phone...">
+                </div>
+                
                 
                 <!-- Password 입력 -->
                 <div class="input-group">
@@ -179,17 +159,27 @@ function loginCheck(){
                   </div>
                   <input type="password" class="form-control" placeholder="Password...">
                 </div>
+              
+              <!-- Password Repeat입력 -->
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="material-icons">lock_outline</i>
+                    </span>
+                  </div>
+                  <input type="password" class="form-control" placeholder="Password Repeat...">
+                </div>
               </div>
+              
               <!-- 로그인 데이터 영역 끝 -->
               
-              <!-- Login 버튼 -->  
+              <!-- Sign in 버튼 -->  
               <div class="footer text-center">
-                <button name="login" class="btn btn-primary btn-link btn-wd btn-lg">Login</button>
-                <a href="/client/signin" class="btn btn-primary btn-link btn-wd btn-lg">Sign Up</a>
+                <button name="sign" class="btn btn-primary btn-link btn-wd btn-lg">Sign Up</button>
               </div>
               
             </form>
-            <!-- 로그인 데이터 폼 끝부분 -->
+            <!-- Sign in 데이터 폼 끝부분 -->
           </div>
         </div>
       </div>

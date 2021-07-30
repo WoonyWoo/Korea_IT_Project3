@@ -21,6 +21,59 @@
   cursor: url("../../img/arrow-right.png"), url("../../img/arrow-right.cur"), default !important;
 }
 
+.logo_title {
+	height: 1300px;
+	width: 4000px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	box-sizing: border-box;
+	object-fit: contain;
+	background-position: center center;
+	background-image: url("/resources/client/assets/img/nemo_logo/nemo_logo_title.png");
+	margin: 0;
+	padding: 0;
+	border: 0;
+	align-items: center;
+	background-position: center center;
+	position: absolute;
+	margin: 0;
+	float: right;
+	background-repeat: no-repeat;
+	left: 1100px;
+	transform: translateX(-50%);
+	z-index: 2;
+}
+
+.logo_face {
+	height: 300px;
+	width: 300px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	box-sizing: border-box;
+	object-fit: contain;
+	background-position: center center;
+	background-image: url("/resources/client/assets/img/nemo_logo/nemo_logo_face.png");
+	margin: 0;
+	padding: 0;
+	border: 0;
+	align-items: center;
+	background-position: center center;
+	position: absolute;
+	float: left;
+	margin: 0;
+	background-repeat: no-repeat;
+	left: 550px;
+	transform: translateX(-50%);
+	z-index: 2;
+}
+
+.regist_button{
+	position: absolute;
+	left: 50%;
+	width: 150px;
+	height: 50px;
+}
+
 .card {
   font-size: .875rem;
 }

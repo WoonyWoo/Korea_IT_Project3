@@ -29,6 +29,24 @@ public class ClientController {
 		return "client/main";
 	}
 	
+	//글작성화면 요청처리
+	@RequestMapping(value="/regist", method=RequestMethod.GET)
+	public String registForm() {
+		return "client/regist";
+	}
+	
+	//글작성화면 요청처리
+	@RequestMapping(value="/ranking", method=RequestMethod.GET)
+	public String rankingForm() {
+		return "client/ranking";
+	}
+	
+	//회원가입 폼 요청처리
+	@RequestMapping(value="/signin", method=RequestMethod.GET)
+	public String signin() {
+		return "client/signin";
+	}
+	
 	//로그인 폼 요청처리
 	@RequestMapping(value="/loginform", method=RequestMethod.GET)
 	public String loginform() {
