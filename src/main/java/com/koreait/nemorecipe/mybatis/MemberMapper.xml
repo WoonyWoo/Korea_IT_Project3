@@ -8,7 +8,7 @@
 	</select>
 	
 	<!-- 회원가입 -->
-	<select id="signUp" parameterType="Member">
+	<insert id="signUp" parameterType="Member">
 		insert into member(user_id, user_pass, user_nickname) values(#{user_id}, #{user_pass}, #{user_nickname})
-	</select>
+	</insert>
 </mapper>

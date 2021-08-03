@@ -1,5 +1,8 @@
 package com.koreait.nemorecipe.controller.client;
 
+import java.util.List;
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -13,10 +16,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.koreait.nemorecipe.domain.Member;
+import com.koreait.nemorecipe.domain.Recipe;
 import com.koreait.nemorecipe.exception.MemberExistException;
+import com.koreait.nemorecipe.model.common.file.FileManager;
 import com.koreait.nemorecipe.model.service.member.MemberService;
+import com.koreait.nemorecipe.model.service.recipe.RecipeService;
 
 @Controller
 public class ClientController {
@@ -26,6 +33,14 @@ public class ClientController {
 	@Autowired
 	private MemberService memberService;
 	
+	@Autowired
+	private RecipeService recipeService;
+	
+	@Autowired
+	private FileManager fileManager;
+	
+	Member obj;
+	
 	//메인화면 요청처리
 	@RequestMapping(value="/main", method=RequestMethod.GET)
 	public String mainForm(HttpServletRequest request) {
@@ -34,8 +49,14 @@ public class ClientController {
 	
 	//글 목록 요청처리
 	@RequestMapping(value="/list", method=RequestMethod.GET)
-	public String list(HttpServletRequest request) {
-		return "client/list";
+	public String list(Model model, HttpServletRequest request) {
+		//3단계: 일 시키기
+		List recipeList = recipeService.selectAll();
+		
+		//4단계: 결과 저장
+		model.addAttribute("recipeList", recipeList);
+		
+		return "client/recipe_list";
 	}
 	
 	//글작성화면 요청처리
@@ -69,7 +90,7 @@ public class ClientController {
 		logger.info("비밀번호는 {} ",member.getUser_pass());
 		
 		//3단계: 일 시키기
-		Member obj = memberService.login(member);
+		obj = memberService.login(member);
 		logger.info("닉네임은 {} ",obj.getUser_nickname());
 		
 		//4단계: 결과 저장
@@ -100,5 +121,25 @@ public class ClientController {
 		
 		return "redirect:/client/loginform";
 	}
+	
+	//레시피 등록
+    @RequestMapping(value = "/regist_recipe", method = RequestMethod.POST)
+    public String registRecipe(Recipe recipe, HttpServletRequest request) {
+
+        recipe.setMember_id(obj.getMember_id()); //멤버 id 넣기(포린키)
+
+        MultipartFile photo=recipe.getPhoto();
+        System.out.println("자동으로 찾은 파일명 : "+photo.getOriginalFilename());
+        ServletContext context = request.getServletContext();
+        long time=System.currentTimeMillis();
+
+        String filename=time+"."+fileManager.getExt(photo.getOriginalFilename());
+        fileManager.saveFile(context, filename , photo);
+        recipe.setRecipe_img(filename); //insert 직전에 파일명 결정짓기
+
+        recipeService.regist(recipe);
+
+        return "client/list";
+    }
 	
 }

@@ -43,7 +43,6 @@ public class MybatisMemberDAO implements MemberDAO{
 
 	@Override
 	public List selectAll() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

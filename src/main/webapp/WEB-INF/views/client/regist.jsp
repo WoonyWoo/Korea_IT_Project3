@@ -1,3 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@page import="javax.naming.spi.DirStateFactory.Result"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="com.mysql.jdbc.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <!--
 =========================================================
@@ -34,6 +38,30 @@ The above copyright notice and this permission notice shall be included in all c
 <link href="/resources/client/assets/css/material-kit.css" rel="stylesheet" />
 <!-- CSS Just for demo purpose, don't include it in your project -->
 <link href="/resources/client/assets/demo/demo.css" rel="stylesheet" />
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+<script>
+	$(function(){
+		$("button[name='registbutton']").click(function(){
+				registbt();
+		})
+	});
+	
+	function registbt(){
+		//서버에 등록요청
+		$("form").attr({
+				"action":"/client/regist_recipe",
+				"method":"post",
+				"enctype":"multipart/form-data"
+		});
+		$("form").submit();
+	}
+</script>
+
 </head>
 
 <body class="index-page sidebar-collapse">
@@ -47,7 +75,7 @@ The above copyright notice and this permission notice shall be included in all c
 		<div class="logo_face"></div>
 		<div class="logo_title"></div>
 	</div>
-
+<form>
 	<!-- 메인 div -->
 	<div class="main main-raised">
 		<div class="section section-basic">
@@ -57,18 +85,19 @@ The above copyright notice and this permission notice shall be included in all c
 					<label style="font-size: 30px; font-weight: bold;">레시피 등록</a>
 				</div>
 				<!-- 요리 사진 등록 -->
+				
 				<div class="regist_recipe">
 					<label style="text-align: left;">요리 사진 등록</label>
 					<div style="text-align: right;">
-					<input
-						type="button" class="recipe_content" value="사진 업로드" onclick="" />
+					  
+					<input type="file" class="recipe_content" name="photo" />
 					</div>
 				</div>
 				<!-- 레시피 제목 -->
 				<div class="regist_recipe">
 					<label style="text-align: left;">레시피 제목</label>
 					<div style="text-align: right;">
-					<input type="text"
+					<input name="recipe_name" type="text"
 						placeholder="예) 갈비탕 끓이기" onclick="" />
 					
 					</div>
@@ -84,22 +113,37 @@ The above copyright notice and this permission notice shall be included in all c
 				<div class="regist_recipe">
 					<label style="text-align: left;">카테고리</label>
 					<div style="text-align: right;">
-						<select style="width: 100px;">
-							<option value="0">종류별</option>
-							<option value="1"></option>
-							<option value="2"></option>
-						</select> <select style="width: 100px;">
-							<option value="0">상황별</option>
-							<option value="1"></option>
-							<option value="2"></option>
-						</select> <select style="width: 100px;">
-							<option value="0">방법별</option>
-							<option value="1"></option>
-							<option value="2"></option>
-						</select> <select style="width: 100px;">
-							<option value="0">재료별</option>
-							<option value="1"></option>
-							<option value="2"></option>
+						<select style="width: 100px;" name="type">
+							<option value="종류별" >종류별</option>
+							<option value="메인반찬">메인반찬</option>
+							<option value="밑반찬">밑반찬</option>
+							<option value="국/탕/찌개">국/탕/찌개</option>
+							<option value="면/밀가루">면/밀가루</option>
+							<option value="밥/죽/떡">밥/죽/떡</option>
+							<option value="기타">기타</option>
+						</select> <select style="width: 100px;" name="situation">
+							<option value="상황별">상황별</option>
+							<option value="야식">야식</option>
+							<option value="간편">간편</option>
+							<option value="손님접대">손님접대</option>
+							<option value="술안주">술안주</option>
+							<option value="다이어트">다이어트</option>
+							<option value="기타">기타</option>
+						</select> <select style="width: 100px;" name="method">
+							<option value="방법별" >방법별</option>
+							<option value="볶음">볶음</option>
+							<option value="부침">부침</option>
+							<option value="조림">조림</option>
+							<option value="찜">찜</option>
+							<option value="튀김">튀김</option>
+							<option value="기타">기타</option>
+						</select> <select style="width: 100px;" name="ingredient">
+							<option value="재료별" >재료별</option>
+							<option value="고기류">고기류</option>
+							<option value="채소류">채소류</option>
+							<option value="해물류">해물류</option>
+							<option value="가공류">가공류</option>
+							<option value="기타">기타</option>
 						</select>
 					</div>
 				</div>
@@ -113,19 +157,25 @@ The above copyright notice and this permission notice shall be included in all c
 							<label style="text-align: left; width: 100px;">난이도</label>
 						</div>
 						<div style="text-align: right;">
-							<select style="width: 100px">
-								<option value="0">1인분</option>
-								<option value="1"></option>
-								<option value="2"></option>
+							<select style="width: 100px" name="serving">
+								<option value="1인분">1인분</option>
+								<option value="2~3인분">2~3인분</option>
+								<option value="4~5인분">4~5인분</option>
+								<option value="6~10인분">6~10인분</option>
+								<option value="10인분 이상">10인분 이상</option>
 							</select>
-							<select style="width: 100px">
-								<option value="0">1시간</option>
-								<option value="1"></option>
-								<option value="2"></option>
-							</select> <select style="width: 100px;">
-								<option value="0">A</option>
-								<option value="1"></option>
-								<option value="2"></option>
+							<select style="width: 100px" name="time">
+								<option value="3분 미만">3분 미만</option>
+								<option value="3분~5분">3분~5분</option>
+								<option value="5분~10분">5분~10분</option>
+								<option value="10분~30분">10분~30분</option>
+								<option value="30분~1시간">30분~1시간</option>
+								<option value="1시간이상">1시간이상</option>
+							</select> <select style="width: 100px;" name="level">
+								<option value="상">상</option>
+								<option value="중">중</option>
+								<option value="하">하</option>
+								<option value="누구든지">누구든지</option>
 							</select>
 						</div>
 					</div>
@@ -138,9 +188,9 @@ The above copyright notice and this permission notice shall be included in all c
 							<label style="text-align: left; width: 350px;">* 재료가 남지 않도록 정확하게 작성해주세요.</label>
 						</div>
 						<div style="text-align: right;">
-							<input type="text" placeholder="예) 소스 / 재료" onclick="" />
-							<input type="text" placeholder="예) 간장 / 소고기" onclick="" />
-							<input type="text" placeholder="예) 3큰술 / 600g" onclick="" />
+							<input name="recipe_ingredient" type="text" placeholder="예) 소스 / 재료" onclick="" />
+							<input name="recipe_ingredient" type="text" placeholder="예) 간장 / 소고기" onclick="" />
+							<input name="recipe_ingredient" type="text" placeholder="예) 3큰술 / 600g" onclick="" />
 							<input type="button" onclick="" value="+"></>
 							<input type="button" onclick="" value="-"/>
 						</div>
@@ -150,15 +200,19 @@ The above copyright notice and this permission notice shall be included in all c
 				<div class="regist_recipe">
 					<label style="text-align: left;">요리순서</label>
 					<div style="text-align: right;">
-						<textarea rows="5" cols="50"></textarea>
+						<textarea name="recipe_order" rows="5" cols="50"></textarea>
 					</div>
 				</div>
 				<!-- 내용 끝 -->
 			</div>
-			<button class="regist_button">글쓰기 등록</button>
+			<button name="registbutton" class="regist_button">글쓰기 등록</button>
 		</div>
 	</div>
 
+	</form>
+	
+	
+	
 	<!-- 하단부 내용 -->
 	<div class="title"></div>
 	</div>
@@ -227,6 +281,21 @@ The above copyright notice and this permission notice shall be included in all c
 			}
 		}
 	</script>
+	
+	
+<!-- 등록폼 관련 시작-->
+<!-- jQuery -->
+<script src="/resources/client/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/resources/client/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="/resources/client/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/resources/client/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/resources/client/dist/js/demo.js"></script>
+	
+	
 </body>
 
 </html>

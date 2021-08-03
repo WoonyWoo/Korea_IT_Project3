@@ -1,4 +1,9 @@
+<%@page import="com.koreait.nemorecipe.domain.Recipe"%>
+<%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
+<%
+	List<Recipe> recipeList = (List)request.getAttribute("recipeList");
+%>
 <%
 	/* List<Board> boardList = boardDAO.selectAll(); //총 레코드수 가져오기 */
 	/* int totalRecord=boardList.size();//총 게시물 수
