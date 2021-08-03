@@ -55,6 +55,7 @@
 					<!-- MyPage -->
 					<li class="nav-item"><a class="nav-link"
 						href="javascript:void(0)" onclick=""> MyPage </a></li>
+						
 					<!-- 구분선 -->
 					<li><a> || </a></li>
 					<%if(member!=null){ %>
@@ -70,6 +71,7 @@
 					<%} %>
 					<!-- 구분선 -->
 					<li><a> || </a></li>
+					
 					<!-- 트위터 연결 -->
 					<li class="nav-item"><a class="nav-link" rel="tooltip"
 						title="" data-placement="bottom"

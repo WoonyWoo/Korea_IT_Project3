@@ -6,4 +6,9 @@
 	<select id="login" parameterType="Member" resultType="Member">
 		select * from member where user_id=#{user_id} and user_pass=#{user_pass}
 	</select>
+	
+	<!-- 회원가입 -->
+	<select id="signUp" parameterType="Member">
+		insert into member(user_id, user_pass, user_nickname) values(#{user_id}, #{user_pass}, #{user_nickname})
+	</select>
 </mapper>

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -91,6 +92,13 @@ public class ClientController {
 		return "redirect:/client/main";
 	}
 	
-	
+	//회원가입 요청 처리
+	@PostMapping("/signup")
+	public String singup(Member member, HttpServletRequest request) {
+		//3단계: 일 시키기
+		memberService.regist(member);
+		
+		return "redirect:/client/loginform";
+	}
 	
 }

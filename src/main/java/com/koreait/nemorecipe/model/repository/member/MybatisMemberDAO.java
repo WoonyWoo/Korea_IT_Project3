@@ -26,8 +26,7 @@ public class MybatisMemberDAO implements MemberDAO{
 
 	@Override
 	public void regist(Member member) {
-		// TODO Auto-generated method stub
-		
+		sqlSessionTemplate.insert("Member.signUp", member);
 	}
 
 	@Override
