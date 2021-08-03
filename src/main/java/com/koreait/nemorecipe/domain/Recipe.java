@@ -28,5 +28,7 @@ public class Recipe {
 	
 	MultipartFile photo;
 	
-	private Timestamp date; //등록시간
+	private String recipe_date; //등록시간
+	private int recipe_hit; // 조회수
+    private int recipe_like; // 좋아요 수
 }

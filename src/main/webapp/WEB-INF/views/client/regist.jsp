@@ -189,7 +189,6 @@ The above copyright notice and this permission notice shall be included in all c
 						</div>
 						<div style="text-align: right;">
 							<input name="recipe_ingredient" type="text" placeholder="예) 소스 / 재료" onclick="" />
-							<input name="recipe_ingredient" type="text" placeholder="예) 간장 / 소고기" onclick="" />
 							<input name="recipe_ingredient" type="text" placeholder="예) 3큰술 / 600g" onclick="" />
 							<input type="button" onclick="" value="+"></>
 							<input type="button" onclick="" value="-"/>

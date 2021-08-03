@@ -127,19 +127,25 @@ public class ClientController {
     public String registRecipe(Recipe recipe, HttpServletRequest request) {
 
         recipe.setMember_id(obj.getMember_id()); //멤버 id 넣기(포린키)
+        
+        String filename;
 
         MultipartFile photo=recipe.getPhoto();
-        System.out.println("자동으로 찾은 파일명 : "+photo.getOriginalFilename());
-        ServletContext context = request.getServletContext();
-        long time=System.currentTimeMillis();
 
-        String filename=time+"."+fileManager.getExt(photo.getOriginalFilename());
-        fileManager.saveFile(context, filename , photo);
+        if(photo.isEmpty()) {
+        	filename = "none";
+        }else {
+        	ServletContext context = request.getServletContext();
+        	long time=System.currentTimeMillis();
+        	filename=time+"."+fileManager.getExt(photo.getOriginalFilename());
+        	fileManager.saveFile(context, filename , photo);
+        }
+        
         recipe.setRecipe_img(filename); //insert 직전에 파일명 결정짓기
 
         recipeService.regist(recipe);
 
-        return "client/list";
+        return "redirect:/client/list";
     }
 	
 }

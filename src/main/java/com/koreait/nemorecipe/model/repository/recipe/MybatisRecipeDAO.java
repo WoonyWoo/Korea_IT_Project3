@@ -26,8 +26,7 @@ public class MybatisRecipeDAO implements RecipeDAO{
 
 	@Override
 	public List selectAll() {
-		sqlSessionTemplate.selectList("recipe.selectAll");
-		return null;
+		return sqlSessionTemplate.selectList("recipe.selectAll");
 	}
 
 

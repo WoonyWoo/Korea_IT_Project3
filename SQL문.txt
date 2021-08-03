@@ -52,14 +52,12 @@ create table info_level(
 	level_info varchar(20)
 )default character set utf8;
 
-
-
 -레시피 테이블
 create table recipe(
 	recipe_id int primary key auto_increment,
 	member_id int,
 	constraint fk_member_id foreign key (member_id) 
-	 references members(member_id),
+	 references member(member_id),
 	type_id int,
 	constraint fk_type_id foreign key (type_id) 
 	 references category_type(type_id),
@@ -86,6 +84,29 @@ create table recipe(
 	recipe_date timestamp default now()
 )default character set utf8;
 
+
+-레시피 테이블 ( 포린키 제외버젼)
+create table recipe(
+    recipe_id int primary key auto_increment,
+    member_id int,
+    constraint fk_member_id foreign key (member_id) 
+     references member(member_id),
+    type varchar(30),
+    situation varchar(30),
+    ingredient varchar(30),
+    method varchar(30),
+    time varchar(30),
+    level varchar(30),
+    serving varchar(30),
+    recipe_name varchar(20),
+    recipe_order varchar(100),
+    recipe_ingredient varchar(100),
+    recipe_hit int default 0,
+    recipe_like int default 0,
+    recipe_img varchar(30),
+    recipe_date timestamp default now()
+)default character set utf8;
+
 	
 -랭크 테이블
 create table rank(
@@ -105,7 +126,7 @@ title varchar(50),
 team int,
 step int,
 depth int,
-foreign key (writer_id) references members(member_id)
+foreign key (writer_id) references member(member_id)
 )default character set utf8;
 
 
@@ -160,7 +181,8 @@ insert into category_ingredient(ingredient_type) values ('콩/견과류');
 insert into category_ingredient(ingredient_type) values ('곡류');
 insert into category_ingredient(ingredient_type) values ('기타');
 
-insert into category_method(method_type) values ('볶음');			insert into category_method(method_type) values ('끓이기');
+insert into category_method(method_type) values ('볶음');		
+insert into category_method(method_type) values ('끓이기');
 insert into category_method(method_type) values ('부침');
 insert into category_method(method_type) values ('조림');
 insert into category_method(method_type) values ('무침');
@@ -186,11 +208,18 @@ insert into Info_level(level_info) values ('중');
 insert into Info_level(level_info) values ('하');
 insert into Info_level(level_info) values ('누구든지');
 
+create table member(
+	member_id int primary key auto_increment,
+	user_id varchar(20),
+	user_pass varchar(20),
+	user_nickname varchar(20),
+	signup timestamp default now()
+)default character set utf8;
 
 
+insert into member(user_id, user_pass, user_nickname) values ("zz123","1234","닉네임");
 
-
-
+insert into recipe(member_id, type_id,  situation_id, ingredient_id, method_id, time_id,  level_id, serving, recipe_img, recipe_name, recipe_order, recipe_ingredient) values (1,1,1,1,1,1,1,1,"이미지","네임","순서","재료");
 
 
 

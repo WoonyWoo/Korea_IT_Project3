@@ -113,12 +113,20 @@
 	      <!-- 아이템 전체 -->
 	      <div class="row" style="position: relative;">
 	        
+	        <%for(Recipe recipe : recipeList){ %>
 	        <!-- 아이템 -->
-	        <div style="width: 200px; height: 200px; float: left; margin: 0px 2.5rem; margin-left: 3rem;">
-	          <img src="/resources/client/assets/img/faces/avatar.jpg" alt="Rounded Image" class="rounded img-fluid">
-	          <label class="title" style="text-align: center;">음식 제목</label>
-	          <label style="text-align: right; color: #00bcd4">닉네임/수정날짜</label>
+	        <div style="width: 200px; height: 370px; float: left; margin: 0px 2.5rem; margin-left: 2.5rem; text-align: center">
+	        	<%if(recipe.getRecipe_img().equals("none")){ %>
+	        	<img src="/resources/client/assets/img/noimage.jpg" alt="Rounded Image" class="rounded img-fluid" style="width: 200px; height: 200px">
+	        	<%}else{ %>
+	          	<img src="/resources/data/<%=recipe.getRecipe_img() %>" alt="Rounded Image" class="rounded img-fluid" style="width: 200px; height: 200px">
+	          	<%} %>
+	          	<h4 class="title" style="text-align: center;"><%=recipe.getRecipe_name() %></h4>
+	          	<h6 style="text-align: right; color: #00bcd4"><%=member.getUser_nickname()%> / <%=recipe.getRecipe_date() %></h6>
 	        </div>
+	        
+	        <%} %>
+	        
 	      </div>
 	      <!-- 아이템 전체 End -->
 	    </div>
