@@ -1,5 +1,6 @@
 package com.koreait.nemorecipe.controller.client;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -25,54 +27,70 @@ public class ClientController {
 	
 	//메인화면 요청처리
 	@RequestMapping(value="/main", method=RequestMethod.GET)
-	public String mainForm() {
+	public String mainForm(HttpServletRequest request) {
 		return "client/main";
+	}
+	
+	//글 목록 요청처리
+	@RequestMapping(value="/list", method=RequestMethod.GET)
+	public String list(HttpServletRequest request) {
+		return "client/list";
 	}
 	
 	//글작성화면 요청처리
 	@RequestMapping(value="/regist", method=RequestMethod.GET)
-	public String registForm() {
+	public String registForm(HttpServletRequest request) {
 		return "client/regist";
 	}
 	
-	//글작성화면 요청처리
+	//랭킹 화면 요청처리
 	@RequestMapping(value="/ranking", method=RequestMethod.GET)
-	public String rankingForm() {
+	public String rankingForm(HttpServletRequest request) {
 		return "client/ranking";
 	}
 	
 	//회원가입 폼 요청처리
 	@RequestMapping(value="/signin", method=RequestMethod.GET)
-	public String signin() {
+	public String signin(HttpServletRequest request) {
 		return "client/signin";
 	}
 	
 	//로그인 폼 요청처리
 	@RequestMapping(value="/loginform", method=RequestMethod.GET)
-	public String loginform() {
+	public String loginform(HttpServletRequest request) {
 		return "client/loginform";
 	}
 	
 	//로그인 요청처리
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(Member member, HttpSession session) {
-		logger.info("이름은 {} ",member.getUser_id());
+	public String login(Member member, HttpServletRequest request) {
+		logger.info("아이디는 {} ",member.getUser_id());
+		logger.info("비밀번호는 {} ",member.getUser_pass());
 		
 		//3단계: 일 시키기
 		Member obj = memberService.login(member);
+		logger.info("닉네임은 {} ",obj.getUser_nickname());
 		
 		//4단계: 결과 저장
+		HttpSession session = request.getSession();
 		session.setAttribute("member", obj); //request가 아닌 session에 저장함
 		
-		return "client/main";
+		return "redirect:/client/main";
 	}
 	
-	//위의 요청을 처리하는 메서드 중에서, 어느 것 하나라도 예외가 발생하면 아래의 메서드가 동작하게 됨
-	@ExceptionHandler(MemberExistException.class)
-	public String handleException(MemberExistException e, Model model) {
-		model.addAttribute("e", e);
+	//로그아웃 요청처리
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request) {
 		
-		return "error/result";
+		//3단계: 일 시키기
+		
+		//4단계: 결과 저장
+		HttpSession session = request.getSession();
+		session.setAttribute("member", null); //request가 아닌 session에 저장함
+		
+		return "redirect:/client/main";
 	}
+	
+	
 	
 }
