@@ -25,6 +25,18 @@ public class MybatisRecipeDAO implements RecipeDAO{
 
 
 	@Override
+	public List selectAllLike() {
+		return sqlSessionTemplate.selectList("recipe.selectAllLike");
+	}
+
+
+	@Override
+	public List selectAllHit() {
+		return sqlSessionTemplate.selectList("recipe.selectAllHit");
+	}
+
+
+	@Override
 	public List selectAll() {
 		return sqlSessionTemplate.selectList("recipe.selectAll");
 	}
@@ -50,5 +62,8 @@ public class MybatisRecipeDAO implements RecipeDAO{
 		
 	}
 
+
+
+	
 
 }

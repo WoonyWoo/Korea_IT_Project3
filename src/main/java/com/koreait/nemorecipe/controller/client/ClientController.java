@@ -59,6 +59,30 @@ public class ClientController {
 		return "client/recipe_list";
 	}
 	
+	//글 목록 좋아요순 처리
+	@RequestMapping(value="/listLike", method=RequestMethod.GET)
+	public String listLike(Model model, HttpServletRequest request) {
+		//3단계: 일 시키기
+		List recipeList = recipeService.selectAllLike();
+		
+		//4단계: 결과 저장
+		model.addAttribute("recipeList", recipeList);
+		
+		return "client/recipe_list";
+	}
+	
+	//글 목록 좋아요순 처리
+	@RequestMapping(value="/listHit", method=RequestMethod.GET)
+	public String listHit(Model model, HttpServletRequest request) {
+		//3단계: 일 시키기
+		List recipeList = recipeService.selectAllHit();
+		
+		//4단계: 결과 저장
+		model.addAttribute("recipeList", recipeList);
+		
+		return "client/recipe_list";
+	}
+	
 	//글작성화면 요청처리
 	@RequestMapping(value="/regist", method=RequestMethod.GET)
 	public String registForm(HttpServletRequest request) {

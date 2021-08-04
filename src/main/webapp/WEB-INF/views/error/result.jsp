@@ -6,10 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login Please</title>
+  <!-- CSS Files -->
+  <link href="/resources/client/assets/css/material-kit.css" rel="stylesheet" />
 </head>
-<body bgColor="yellow">
-이용에 불편을 드려 죄송합니다. <br>
-<%=e.getMessage() %>	
+<body>
+<div class="error_title"></div>
+<%-- <%=e.getMessage() %>	 --%>
 </body>
 </html>
