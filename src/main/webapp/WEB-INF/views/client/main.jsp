@@ -89,7 +89,7 @@
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <a href="/client/ranking"><img class="d-block w-100" style="height: 550px;" src="/resources/client/assets/img/ranking/ranking_crop.png" alt="Second slide"></a>
+                    <a href="/client/ranking_hit"><img class="d-block w-100" style="height: 550px;" src="/resources/client/assets/img/ranking/ranking_crop.png" alt="Second slide"></a>
                     <div class="carousel-caption d-none d-md-block">
                       <h3>
                         <i class="material-icons">location_on</i>
@@ -151,7 +151,6 @@
           	  <img src="/resources/data/<%=recipeList.get(i).getRecipe_img() %>" alt="Rounded Image" class="rounded img-fluid" style="width: 200px; height: 200px">
           	  <%} %>
 	          <h4 class="title" style="text-align: center;"><%=recipeList.get(i).getRecipe_name() %></h4>
-	          <h6>음식 설명</h6>
 	          <h6 style="text-align: right; color: #00bcd4"><%=recipeList.get(i).getMember().getUser_nickname() %> / <%=recipeList.get(i).getRecipe_date() %></h6>
 	        </div>
 	        <%} %>

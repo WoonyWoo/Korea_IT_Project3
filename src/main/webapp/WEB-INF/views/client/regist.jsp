@@ -93,6 +93,9 @@ The above copyright notice and this permission notice shall be included in all c
 					<input type="file" class="recipe_content" name="photo" />
 					</div>
 				</div>
+				
+				<div class="space-50"></div> <!-- 페이지 공백 -->
+				
 				<!-- 레시피 제목 -->
 				<div class="regist_recipe">
 					<label style="text-align: left;">레시피 제목</label>
@@ -102,13 +105,9 @@ The above copyright notice and this permission notice shall be included in all c
 					
 					</div>
 				</div>
-				<!-- 요리소개 -->
-				<div class="regist_recipe">
-					<label style="text-align: left;">요리소개</label>
-					<div style="text-align: right;">
-						<textarea rows="5" cols="50"></textarea>
-					</div>
-				</div>
+				
+				<div class="space-50"></div> <!-- 페이지 공백 -->
+				
 				<!-- 카테고리 -->
 				<div class="regist_recipe">
 					<label style="text-align: left;">카테고리</label>
@@ -147,6 +146,9 @@ The above copyright notice and this permission notice shall be included in all c
 						</select>
 					</div>
 				</div>
+				
+				<div class="space-50"></div> <!-- 페이지 공백 -->
+				
 				<!-- 요리정보 -->
 				<div class="regist_recipe">
 					<label style="text-align: left;">요리정보</label>
@@ -180,6 +182,9 @@ The above copyright notice and this permission notice shall be included in all c
 						</div>
 					</div>
 				</div>
+				
+				<div class="space-50"></div> <!-- 페이지 공백 -->
+				
 				<!-- 재료 -->
 				<div class="regist_recipe">
 					<label style="text-align: left;">재료</label>
@@ -195,6 +200,10 @@ The above copyright notice and this permission notice shall be included in all c
 						</div>
 					</div>
 				</div>
+				
+				<div class="space-50"></div> <!-- 페이지 공백 -->
+				<div class="space-50"></div> <!-- 페이지 공백 -->
+				
 				<!-- 요리순서 -->
 				<div class="regist_recipe">
 					<label style="text-align: left;">요리순서</label>
@@ -204,7 +213,13 @@ The above copyright notice and this permission notice shall be included in all c
 				</div>
 				<!-- 내용 끝 -->
 			</div>
+			
+			<div class="space-50"></div> <!-- 페이지 공백 -->
+			<div class="space-50"></div> <!-- 페이지 공백 -->
+			
 			<button name="registbutton" class="regist_button">글쓰기 등록</button>
+			
+			<div class="space-50"></div> <!-- 페이지 공백 -->
 		</div>
 	</div>
 
