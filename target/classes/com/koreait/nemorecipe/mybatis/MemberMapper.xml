@@ -15,4 +15,9 @@
 	<select id="select" parameterType="int" resultType="Member">
 		select * from member where member_id=#{member_id}
 	</select>
+	
+	<!-- 정보 업데이트 -->
+	<update id="update" parameterType="Member">
+		update member set user_pass=#{user_pass}, user_nickname=#{user_nickname} where user_id=#{user_id}
+	</update>
 </mapper>

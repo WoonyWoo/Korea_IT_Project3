@@ -51,19 +51,19 @@
 						href="/client/list" onclick=""> Recipe </a></li>
 					<!-- Ranking -->
 					<li class="nav-item"><a class="nav-link"
-						href="/client/ranking" onclick=""> Ranking </a></li>
+						href="/client/ranking_hit" onclick=""> Ranking </a></li>
 					<!-- MyPage -->
 					<li class="nav-item"><a class="nav-link"
-						href="javascript:void(0)" onclick=""> MyPage </a></li>
+						href="/client/mypage" onclick=""> MyPage </a></li>
 						
 					<!-- 구분선 -->
 					<li><a> || </a></li>
 					<%if(member!=null){ %>
 					<!-- 로그인 했을 때 -->
 					<li class="nav-item"><a class="nav-link"
-						href="#" style="color: orange;"> <%=member.getUser_nickname() %> 님 </a></li>
+						href="/client/updateform" style="color: orange;"> <%=member.getUser_nickname() %> 님 </a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="/client/logout"> Logout </a></li>
+						href="/client/logout" onclick="alert('로그아웃 하셨습니다');"> Logout </a></li>
 					<%}else{ %>	
 					<!-- 로그인 아직 안했을 때 -->
 					<li class="nav-item"><a class="nav-link"

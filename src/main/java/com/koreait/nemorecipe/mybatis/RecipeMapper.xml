@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="recipe">
 
-
+	<!-- 레시피 등록 -->
 	<insert id="insert" parameterType="Recipe">
 		insert into recipe(member_id, type,  situation, ingredient, method, time,  level, serving, recipe_img, recipe_name, recipe_order, recipe_ingredient) 
 		values(#{member_id},#{type},#{situation},#{ingredient},
@@ -10,17 +10,30 @@
 		   #{recipe_name},#{recipe_order},#{recipe_ingredient});
 	</insert>
 	
+	<!-- 모든 레시피 조회 -->
 	<select id="selectAll" resultMap="RecipeMemberCollection">
 		select * from recipe order by recipe_id desc
 	</select>
 	
+	<!-- 좋아요순 레시피 조회 -->
 	<select id="selectAllLike" resultMap="RecipeMemberCollection">
 		select * from recipe order by recipe_like desc
 	</select>
 	
+	<!-- 조회수순 레시피 조회 -->
 	<select id="selectAllHit" resultMap="RecipeMemberCollection">
 		select * from recipe order by recipe_hit desc
 	</select>
+	
+	<!-- 레시피 1개 조회 -->
+	<select id="select" parameterType="int" resultMap="RecipeMemberCollection">
+		select * from recipe where recipe_id=#{recipe_id}
+	</select>
+	
+	<!-- 레시피 조회수 증가 -->
+	<update id="addHit" parameterType="int">
+		update recipe set recipe_hit=recipe_hit+1 where recipe_id=#{recipe_id}
+	</update>
 	
 	<!-- Member를 컬렉션으로 가져오기 -->
 	<resultMap type="Recipe" id="RecipeMemberCollection">

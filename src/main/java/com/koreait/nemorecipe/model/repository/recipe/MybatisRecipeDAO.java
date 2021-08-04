@@ -25,6 +25,12 @@ public class MybatisRecipeDAO implements RecipeDAO{
 
 
 	@Override
+	public void addHit(int recipe_id) {
+		sqlSessionTemplate.update("recipe.addHit", recipe_id);
+	}
+
+
+	@Override
 	public List selectAllLike() {
 		return sqlSessionTemplate.selectList("recipe.selectAllLike");
 	}
@@ -44,8 +50,7 @@ public class MybatisRecipeDAO implements RecipeDAO{
 
 	@Override
 	public Recipe select(int recipe_id) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSessionTemplate.selectOne("recipe.select", recipe_id);
 	}
 
 
