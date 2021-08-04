@@ -133,7 +133,7 @@
 	      <!-- 중간 제목 -->
 	      <div class="title" style="position: relative;">
 	        <h2 style="float: left;">Nemo Recipe의 인기 레시피</h2>
-	        <button class="btn btn-success"  style="float: right; margin-top: 30px;">더보기</button>
+	        <button class="btn btn-success"  style="float: right; margin-top: 30px;" onClick="location.href='/client/list';">더보기</button>
 	      </div>
 	      <!-- 중간 제목 End -->
 	      <br>
@@ -144,7 +144,7 @@
 	        
 	        <%for(int i=0;i<4;i++){ %>
 	        <!-- 아이템 -->
-	        <div style="width: 200px; height: 370px; float: left; margin: 0px 2.5rem; margin-left: 2.5rem; text-align: center">
+	        <div style="width: 200px; height: 370px; float: left; margin: 0px 2.5rem; margin-left: 2.5rem; text-align: center; cursor: pointer;"  onClick="location.href='/client/detail?recipe_id=<%=recipeList.get(i).getRecipe_id()%>';">
 	          <%if(recipeList.get(i).getRecipe_img().equals("none")){ %>
         	  <img src="/resources/client/assets/img/noimage.jpg" alt="Rounded Image" class="rounded img-fluid" style="width: 200px; height: 200px">
         	  <%}else{ %>

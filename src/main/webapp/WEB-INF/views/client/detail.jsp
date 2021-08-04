@@ -157,7 +157,7 @@ The above copyright notice and this permission notice shall be included in all c
 						String[] arr_recipe_ing = str.split(",");
 					%>
 					<div class="detail_section">
-						<%for(int i=0;i<=(arr_recipe_ing.length)/2;i++){ %>
+						<%for(int i=0;i<arr_recipe_ing.length;i++){ %>
 						<div class="detail_ingredient" style="border-bottom-color: gray; border-bottom-style: solid; border-width: thin;">
 							<input style="text-align: left; border: none; width: 500px;" name="recipe_ingredient" type="text" value="<%=arr_recipe_ing[i++] %>" readonly/>
 							<input style="text-align: right;border: none; width: auto;"	name="recipe_in redient" type="text" value="<%=arr_recipe_ing[i] %>" readonly/>
