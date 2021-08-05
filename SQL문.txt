@@ -99,14 +99,25 @@ create table recipe(
     level varchar(30),
     serving varchar(30),
     recipe_name varchar(20),
-    recipe_order varchar(100),
-    recipe_ingredient varchar(100),
+    recipe_order LONGTEXT,
+    recipe_ingredient MEDIUMTEXT,
     recipe_hit int default 0,
     recipe_like int default 0,
     recipe_img varchar(30),
     recipe_date timestamp default now()
 )default character set utf8;
 
+-좋아요 체크 테이블
+create table checkLike(
+	checkLike_id int primary key auto_increment,
+	recipe_id int,
+	constraint fk_recipe_check_id foreign key (recipe_id)
+	 references recipe(recipe_id),
+	member_id int,
+	constraint fk_member_check_id foreign key (member_id)
+	 references member(member_id),
+	checking int default 1
+)default character set utf8;
 	
 -랭크 테이블
 create table rank(
